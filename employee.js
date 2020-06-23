@@ -9,15 +9,34 @@ let connection = mysql.createConnection({
     database: "employee_trackerdb"
 });
 
-inquirer.prompt ({
-    type:
-    message: 
-    name:
-    choices: [
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log("EMPLOYEE TRACKER TITLE!!!!");
+    optionScreen();
+})
 
-    ]
-}).then(
 
-)
+function optionScreen() {
+    inquirer.prompt ({
+        type: "list",
+        message: "Choose an Option",
+        name: "option-selector",
+        choices: [
+            "View Roles",
+            "View Departments",
+            "View Employees",
+            "Add Role",
+            "Add Department",
+            "Add Employee",
+            "Delete Employee",
+            "View Employee Manager",
+            "delete role",
+            "All Done"
+        ]
+    }).then(
+    
+    )
+    
+}
 
 inquirer.prompt
