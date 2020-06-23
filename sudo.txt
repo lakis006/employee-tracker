@@ -1,0 +1,9 @@
+2 inquirer.prmpt
+
+the second prompt is going to be an input style 
+
+once they type in their answer in a .then function 
+
+then insert value via mysql connection 
+
+c
