@@ -17,7 +17,7 @@ connection.connect(function (err) {
 
 
 function optionScreen() {
-    inquirer.prompt ({
+    inquirer.prompt({
         type: "list",
         message: "Choose an Option",
         name: "option-selector",
@@ -28,15 +28,75 @@ function optionScreen() {
             "Add Role",
             "Add Department",
             "Add Employee",
-            "Delete Employee",
-            "View Employee Manager",
-            "delete role",
+            "Update Employee Role",
             "All Done"
         ]
-    }).then(
-    
+    }).then(function (option) {
+        switch (option) {
+            case "View Roles":
+                displayRoles(); // function will display all the roles in database 
+                areYouDone(); // will decide if person if done and if not will reshwow options 
+                break;
+            case "View Departments":
+                displayDepartments(); // function will display all the departments in database 
+                areYouDone(); // will decide if person if done and if not will reshwow options 
+                break;
+            case "View Employees":
+                displayEmployees(); // function will display all the employees in database 
+                areYouDone(); // will decide if person if done and if not will reshwow options 
+                break;
+            case "Add Role":
+                addRole(); // function will add a role in database 
+                areYouDone(); // will decide if person if done and if not will reshwow options 
+                break;
+            case "Add Department":
+                addDepartment(); // function will add a department in database 
+                areYouDone(); // will decide if person if done and if not will reshwow options 
+                break;
+            case "Add Employee":
+                addEmployee(); // function will add an employee in database 
+                areYouDone(); // will decide if person if done and if not will reshwow options 
+                break;
+            case "Update Employee Role":
+                updateRole(); // function will update roles in database 
+                areYouDone(); // will decide if person if done and if not will reshwow options 
+                break;
+            default:
+                break;
+        }
+    }
+
     )
-    
+
 }
 
-inquirer.prompt
+//  inquirer.prompt 
+
+
+function displayRoles() {
+
+}
+
+function displayDepartments() {
+
+}
+
+function displayEmployees() {
+
+}
+
+function addRole() {
+
+}
+
+function addDepartment() {
+
+}
+
+function addEmployee() {
+
+}
+
+function updateRole() {
+
+}
