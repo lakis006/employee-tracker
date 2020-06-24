@@ -34,19 +34,19 @@ function optionScreen() {
     }).then(function (option) {
         switch (option) {
             case "View Roles":
-                displayRoles(); // function will display all the roles in database 
+                display("Roles"); // function will display all the roles in database 
                 areYouDone(); // will decide if person if done and if not will reshwow options 
                 break;
             case "View Departments":
-                displayDepartments(); // function will display all the departments in database 
+                display("Departments"); // function will display all the departments in database 
                 areYouDone(); // will decide if person if done and if not will reshwow options 
                 break;
             case "View Employees":
-                displayEmployees(); // function will display all the employees in database 
+                display("Employees"); // function will display all the employees in database 
                 areYouDone(); // will decide if person if done and if not will reshwow options 
                 break;
             case "Add Role":
-                addRole(); // function will add a role in database 
+                add("Role"); // function will add a role in database 
                 areYouDone(); // will decide if person if done and if not will reshwow options 
                 break;
             case "Add Department":
@@ -54,7 +54,7 @@ function optionScreen() {
                 areYouDone(); // will decide if person if done and if not will reshwow options 
                 break;
             case "Add Employee":
-                addEmployee(); // function will add an employee in database 
+                employeeInfoPrompt(); // function will add an employee in database 
                 areYouDone(); // will decide if person if done and if not will reshwow options 
                 break;
             case "Update Employee Role":
@@ -69,25 +69,51 @@ function optionScreen() {
     )
 
 }
-
+const myQ = [{
+    type: "list",
+    message: "Choose an Option",
+    name: "option-selector",
+    choices: []
+}, {
+    type: "list",
+    message: "Choose an Option",
+    name: "option-selector",
+    choices: []
+}, {
+    type: "list",
+    message: "Choose an Option",
+    name: "option-selector",
+    choices: []
+}]
 //  inquirer.prompt 
 
+function employeeInfoPrompt() {
 
-function displayRoles() {
+    inquirer.prompt(myQ).then(add(x))
 
+
+
+    inquirer.prompt({
+     
+    }).then({
+
+    });
 }
 
-function displayDepartments() {
-
+function display(param) {
+    connection.query("SELECT * FROM ?", [param])
 }
 
-function displayEmployees() {
-
+function add(param) {
+    connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id)", [])
 }
+
 
 function addRole() {
 
 }
+
+
 
 function addDepartment() {
 
@@ -98,5 +124,9 @@ function addEmployee() {
 }
 
 function updateRole() {
+
+}
+
+function areYouDone() {
 
 }
